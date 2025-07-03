@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+
+body,
+#root,
+.App {
+  background-color: white;
+  color: #000;
+  font-family: "Outfit", sans-serif; 
+  width: 100%;
+  min-height: 100dvh;
+}
