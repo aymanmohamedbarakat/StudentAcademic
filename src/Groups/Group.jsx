@@ -213,7 +213,7 @@ export default function Group() {
                     </div>
 
                     {/* Action Menu */}
-                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="flex items-center gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                       <button
                         onClick={() => handleEditGroup(group)}
                         className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"

@@ -104,7 +104,7 @@ export default function SideMenu({ isOpen, onClose }) {
                 : "hover:bg-gray-100 dark:hover:bg-gray-800"
             )}
           >
-            Group Page
+            Groups
           </NavLink>
 
           <NavLink
@@ -117,7 +117,7 @@ export default function SideMenu({ isOpen, onClose }) {
                 : "hover:bg-gray-100 dark:hover:bg-gray-800"
             )}
           >
-            Student Page
+            Students
           </NavLink>
         </nav>
         <div className="flex items-center gap-2 mt-4">

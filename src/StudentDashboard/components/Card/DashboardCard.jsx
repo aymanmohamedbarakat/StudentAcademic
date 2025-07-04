@@ -54,7 +54,7 @@ export default function DashboardCard() {
                 </div>
 
                 {/* Action Menu */}
-                <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="flex items-center gap-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <button
                     onClick={() =>
                       openModal("edit", "level", level, {

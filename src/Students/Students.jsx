@@ -96,7 +96,7 @@ export default function Students() {
       : levels;
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-white text-black dark:bg-gray-950 dark:text-gray-100">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
@@ -105,16 +105,16 @@ export default function Students() {
               {isFiltered && (
                 <button
                   onClick={handleGoBack}
-                  className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors border border-gray-700"
+                  className="p-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-colors border border-gray-300 dark:border-gray-700"
                 >
-                  <ArrowLeft className="w-4 h-4 text-gray-200" />
+                  <ArrowLeft className="w-4 h-4 text-gray-700 dark:text-gray-200" />
                 </button>
               )}
               <div>
-                <h1 className="text-3xl font-bold text-gray-100 mb-2">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                   {pageTitle}
                 </h1>
-                <p className="text-gray-400">{pageSubtitle}</p>
+                <p className="text-gray-600 dark:text-gray-400">{pageSubtitle}</p>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function Students() {
                 placeholder="Search students by name or email..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-black dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -139,24 +139,24 @@ export default function Students() {
           {filteredData.map((level) => (
             <div key={level.id}>
               {!isFiltered && (
-                <h2 className="text-2xl font-bold text-gray-100 mb-4 flex items-center gap-2">
-                  <GraduationCap className="w-6 h-6 text-blue-400" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+                  <GraduationCap className="w-6 h-6 text-blue-500 dark:text-blue-400" />
                   {level.name}
                 </h2>
               )}
 
               <div className="space-y-6">
                 {level.group?.map((group) => (
-                  <div key={group.id} className="bg-gray-900 rounded-lg p-6 border border-gray-800">
+                  <div key={group.id} className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-800">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <Users className="w-5 h-5 text-blue-400" />
+                        <Users className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                         {!isFiltered && (
-                          <h3 className="text-xl font-semibold text-gray-100">
+                          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                             {group.name}
                           </h3>
                         )}
-                        <span className="bg-gray-800 text-gray-300 px-2 py-1 rounded-full text-sm border border-gray-700">
+                        <span className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-full text-sm border border-gray-300 dark:border-gray-700">
                           {group.students?.length || 0} students
                         </span>
                       </div>
@@ -188,7 +188,7 @@ export default function Students() {
                               return (
                                 <div
                                   key={student.id}
-                                  className="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors border border-gray-700"
+                                  className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-700"
                                 >
                                   <div className="flex items-start justify-between mb-3">
                                     <div className="flex items-center gap-3">
@@ -196,10 +196,10 @@ export default function Students() {
                                         <User className="w-5 h-5 text-white" />
                                       </div>
                                       <div>
-                                        <h4 className="font-semibold text-gray-100">
+                                        <h4 className="font-semibold text-gray-900 dark:text-gray-100">
                                           {student.name}
                                         </h4>
-                                        <p className="text-sm text-gray-400">
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
                                           {student.age} years old
                                         </p>
                                       </div>
@@ -245,17 +245,17 @@ export default function Students() {
 
                                   {/* Contact Info */}
                                   <div className="space-y-2 mb-3">
-                                    <div className="flex items-center gap-2 text-sm text-gray-300">
+                                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                                       <Mail className="w-3 h-3" />
                                       <span className="truncate">
                                         {student.email}
                                       </span>
                                     </div>
-                                    <div className="flex items-center gap-2 text-sm text-gray-300">
+                                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                                       <Phone className="w-3 h-3" />
                                       <span>{student.phone}</span>
                                     </div>
-                                    <div className="flex items-center gap-2 text-sm text-gray-300">
+                                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                                       <MapPin className="w-3 h-3" />
                                       <span className="truncate">
                                         {student.address}
@@ -264,7 +264,7 @@ export default function Students() {
                                   </div>
 
                                   {/* Stats */}
-                                  <div className="flex items-center justify-between text-xs text-gray-400 pt-3 border-t border-gray-600">
+                                  <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-3 border-t border-gray-300 dark:border-gray-600">
                                     <div className="flex items-center gap-1">
                                       <GraduationCap className="w-3 h-3" />
                                       <span>{stats.gradesCount} grades</span>
@@ -282,7 +282,7 @@ export default function Students() {
                                     onClick={() =>
                                       handleViewStudent(student.id)
                                     }
-                                    className="w-full mt-3 px-3 py-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-lg transition-colors text-sm font-medium flex items-center justify-center gap-2 border border-blue-600/20"
+                                    className="w-full mt-3 px-3 py-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-600 dark:text-blue-400 rounded-lg transition-colors text-sm font-medium flex items-center justify-center gap-2 border border-blue-600/20"
                                   >
                                     <Eye className="w-4 h-4" />
                                     View Details
@@ -293,8 +293,8 @@ export default function Students() {
                           </div>
                         ) : (
                           <div className="text-center py-8">
-                            <User className="w-12 h-12 text-gray-500 mx-auto mb-3" />
-                            <p className="text-gray-400 mb-2">
+                            <User className="w-12 h-12 text-gray-400 dark:text-gray-500 mx-auto mb-3" />
+                            <p className="text-gray-500 dark:text-gray-400 mb-2">
                               No students match your search
                             </p>
                           </div>
@@ -302,13 +302,13 @@ export default function Students() {
                       })()
                     ) : (
                       <div className="text-center py-8">
-                        <User className="w-12 h-12 text-gray-500 mx-auto mb-3" />
-                        <p className="text-gray-400 mb-2">
+                        <User className="w-12 h-12 text-gray-400 dark:text-gray-500 mx-auto mb-3" />
+                        <p className="text-gray-500 dark:text-gray-400 mb-2">
                           No students in this group yet
                         </p>
                         <button
                           onClick={() => handleAddStudent(level.id, group.id)}
-                          className="text-blue-400 hover:text-blue-300 text-sm"
+                          className="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 text-sm"
                         >
                           Add the first student
                         </button>
@@ -316,9 +316,9 @@ export default function Students() {
                     )}
                   </div>
                 )) || (
-                  <div className="bg-gray-900 rounded-lg p-6 text-center border border-gray-800">
-                    <Users className="w-12 h-12 text-gray-500 mx-auto mb-3" />
-                    <p className="text-gray-400">No groups in this level yet</p>
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 text-center border border-gray-200 dark:border-gray-800">
+                    <Users className="w-12 h-12 text-gray-400 dark:text-gray-500 mx-auto mb-3" />
+                    <p className="text-gray-500 dark:text-gray-400">No groups in this level yet</p>
                   </div>
                 )}
               </div>
@@ -329,11 +329,11 @@ export default function Students() {
         {/* Empty State */}
         {levels.length === 0 && (
           <div className="text-center py-12">
-            <GraduationCap className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-400 mb-2">
+            <GraduationCap className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">
               No levels found
             </h3>
-            <p className="text-gray-500">
+            <p className="text-gray-500 dark:text-gray-500">
               Create levels and groups first to manage students
             </p>
           </div>
