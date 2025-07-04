@@ -65,6 +65,10 @@ export default function Group() {
     0
   );
 
+  const handleGoBack = () => {
+    navigate('/');
+  };
+
   // Color palette for different groups
   const colorPalette = [
     "from-blue-500 to-cyan-400",
@@ -84,7 +88,7 @@ export default function Group() {
             <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl">
-                  <GraduationCap className="w-8 h-8 text-white" />
+                  <GraduationCap onClick={handleGoBack} className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
@@ -186,9 +190,8 @@ export default function Group() {
               >
                 {/* Gradient Background */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${
-                    colorPalette[index % colorPalette.length]
-                  } opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
+                  className={`absolute inset-0 bg-gradient-to-br ${colorPalette[index % colorPalette.length]
+                    } opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
                 ></div>
 
                 {/* Card Header */}
@@ -196,9 +199,8 @@ export default function Group() {
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div
-                        className={`p-3 rounded-xl bg-gradient-to-r ${
-                          colorPalette[index % colorPalette.length]
-                        } shadow-lg`}
+                        className={`p-3 rounded-xl bg-gradient-to-r ${colorPalette[index % colorPalette.length]
+                          } shadow-lg`}
                       >
                         <Users className="w-6 h-6 text-white" />
                       </div>
@@ -240,9 +242,8 @@ export default function Group() {
                       </span>
                     </div>
                     <div
-                      className={`px-3 py-1 rounded-full bg-gradient-to-r ${
-                        colorPalette[index % colorPalette.length]
-                      } text-white text-sm font-medium`}
+                      className={`px-3 py-1 rounded-full bg-gradient-to-r ${colorPalette[index % colorPalette.length]
+                        } text-white text-sm font-medium`}
                     >
                       {group.students.length} Active
                     </div>

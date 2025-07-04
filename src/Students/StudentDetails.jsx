@@ -9,8 +9,9 @@ import {
   Mail,
   Phone,
   MapPin,
+  ArrowLeft,
 } from "lucide-react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useModalStore } from "../stores/modalStore";
 import UniversalModal from "../components/UniversalModal/UniversalModal";
@@ -23,6 +24,8 @@ export default function StudentDetails() {
   const { openModal } = useModalStore();
   const [activeTab, setActiveTab] = useState("profile");
 
+  const navigate = useNavigate();
+
   const currentStudent = useMemo(() => {
     // Add safety checks for data structure
     if (!levels || !Array.isArray(levels) || !studentId) {
@@ -34,13 +37,13 @@ export default function StudentDetails() {
       if (!level.group || !Array.isArray(level.group)) {
         continue;
       }
-      
+
       for (const group of level.group) {
         // Check if group.students exists and is an array
         if (!group.students || !Array.isArray(group.students)) {
           continue;
         }
-        
+
         const student = group.students.find((s) => s.id === studentId);
         if (student) {
           return { student, level, group };
@@ -49,6 +52,8 @@ export default function StudentDetails() {
     }
     return null;
   }, [levels, studentId]);
+
+
 
   // Add loading state check
   if (!studentId) {
@@ -145,6 +150,12 @@ export default function StudentDetails() {
     });
   };
 
+  // Go back to group view
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
+
   const getGradeColor = (score, maxScore) => {
     const percentage = (score / maxScore) * 100;
     if (percentage >= 90) return "text-green-400";
@@ -172,7 +183,14 @@ export default function StudentDetails() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
-            <div>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={handleGoBack}
+                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-colors border border-gray-200 dark:border-gray-600"
+              >
+                <ArrowLeft className="w-5 h-5 text-gray-700 dark:text-gray-200" />
+              </button>
+
               <h1 className="text-3xl font-bold text-black dark:text-white mb-2">
                 {student.name}
               </h1>
@@ -199,11 +217,10 @@ export default function StudentDetails() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 py-3 px-1 border-b-2 font-medium text-sm transition-colors ${
-                    activeTab === tab.id
-                      ? "border-blue-500 text-blue-600 dark:text-blue-400"
-                      : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
-                  }`}
+                  className={`flex items-center gap-2 py-3 px-1 border-b-2 font-medium text-sm transition-colors ${activeTab === tab.id
+                    ? "border-blue-500 text-blue-600 dark:text-blue-400"
+                    : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   {tab.label}
