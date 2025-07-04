@@ -35,7 +35,7 @@ export default function SideMenu({ isOpen, onClose }) {
 
   const sideMenuStyle = clsx(
     // base styles
-    "w-[200px] sm:w-[250px] h-full flex flex-col gap-4 p-4",
+    "w-[250px] sm:w-[250px] h-full flex flex-col gap-4 p-4",
     "border-l border-slate-100/20 dark:border-gray-700/50",
     "bg-white dark:bg-gray-900",
     "transition-transform duration-300 ease-in-out",
